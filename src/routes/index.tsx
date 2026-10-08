@@ -559,11 +559,11 @@ function Footer() {
 }
 
 const DRESS_COLORS = [
-  { name: "ზეთისხილისფერი", c: "var(--olive)" },
-  { name: "ბორდო", c: "var(--wine)" },
-  { name: "ტერაკოტა", c: "oklch(0.58 0.13 40)" },
-  { name: "ოქროსფერი", c: "oklch(0.74 0.12 82)" },
-  { name: "შოკოლადისფერი", c: "oklch(0.38 0.06 50)" },
+  { name: "ზღაპრული ცისფერი", c: "oklch(0.8 0.07 235)" },
+  { name: "შამპანური ოქრო", c: "oklch(0.8 0.1 85)" },
+  { name: "ვარდისფერი", c: "oklch(0.85 0.06 15)" },
+  { name: "მარგალიტი", c: "oklch(0.96 0.015 90)" },
+  { name: "ღამის ლურჯი", c: "oklch(0.3 0.07 260)" },
 ];
 
 function DressCode() {
