@@ -91,12 +91,13 @@ function Invitation() {
         <Door side="left" open={open} />
         <Door side="right" open={open} />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <FairyDust open={open} />
           <img
             src={bowImg}
             alt="ცისფერი ბრჭყვიალა ბაფთა"
             width={1024}
             height={1536}
-            className={`w-[68vw] max-w-[24rem] drop-shadow-[0_18px_28px_rgba(90,74,56,0.22)] transition-all duration-[1100ms] ease-out ${
+            className={`w-[68vw] max-w-[24rem] relative drop-shadow-[0_0_30px_oklch(0.85_0.08_240/0.7)] transition-all duration-[1100ms] ease-out ${
               open ? "rotate-[3deg] scale-125 opacity-0 blur-[3px]" : "animate-bow-breathe"
             }`}
           />
@@ -105,6 +106,44 @@ function Invitation() {
 
       <MusicPlayer />
     </main>
+  );
+}
+
+const DUST = Array.from({ length: 28 }, (_, i) => ({
+  a: (i * 137.5) % 360,
+  r: 22 + ((i * 53) % 26),
+  s: 6 + ((i * 7) % 12),
+  d: (i * 290) % 3400,
+}));
+
+function FairyDust({ open }: { open: boolean }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute inset-0 transition-opacity duration-700 ${open ? "opacity-0" : "opacity-100"}`}
+    >
+      {DUST.map((p, i) => (
+        <svg
+          key={i}
+          viewBox="0 0 24 24"
+          className="absolute"
+          style={{
+            left: `calc(50% + ${Math.cos((p.a * Math.PI) / 180) * p.r}vmin)`,
+            top: `calc(50% + ${Math.sin((p.a * Math.PI) / 180) * p.r * 1.3}vmin)`,
+            width: p.s,
+            height: p.s,
+            animation: "twinkle 3.4s ease-in-out infinite",
+            animationDelay: `${p.d}ms`,
+            filter: "drop-shadow(0 0 4px oklch(0.95 0.06 230))",
+          }}
+        >
+          <path
+            d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"
+            fill={i % 3 === 0 ? "oklch(0.88 0.1 85)" : "oklch(0.97 0.03 230)"}
+          />
+        </svg>
+      ))}
+    </div>
   );
 }
 
@@ -511,7 +550,7 @@ function Footer() {
         <span className="h-1.5 w-1.5 rotate-45 bg-olive/60" />
         <span className="h-px flex-1 bg-olive/35" />
       </div>
-      <p className="mt-8 font-geo text-4xl text-olive">ა &amp; გ</p>
+      <p className="mt-8 font-geo text-4xl text-olive">ზ &amp; მ</p>
       <p className="mt-5 font-geo text-sm tracking-[0.2em] text-ink/70">
         გელოდებით დიდი სიყვარულით
       </p>
