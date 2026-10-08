@@ -8,32 +8,35 @@ import { Guestbook } from "@/components/Guestbook";
 import MusicPlayer from "@/components/MusicPlayer";
 import { AddToCalendar } from "@/components/Extras";
 import { sendToGoogleSheets } from "@/lib/googleSheets";
+import doorPanel from "@/assets/door-panel.jpg";
+import blueBow from "@/assets/blue-bow.png";
+import heroChateau from "@/assets/hero-chateau.jpg";
 
-const panelImg = "/images/panel.jpg";
-const bowImg = "/images/bow.png";
-const archImg = "/images/arch.jpg";
+const panelImg = doorPanel;
+const bowImg = blueBow;
+const archImg = heroChateau;
 const envelopeImg = "/images/envelope.png";
-const WEDDING_DATE = new Date("2026-10-31T14:00:00+04:00");
+const WEDDING_DATE = new Date("2026-10-24T14:00:00+04:00");
 const OG_IMAGE =
   "https://project--29d3676c-79dc-4353-9774-21b5d96eb7be.lovable.app/images/og-share.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "გეპატიჟებით ჩვენს ქორწილში — ანეტა & გიორგი" },
+      { title: "გეპატიჟებით ჩვენს ქორწილში — ზურა & მილანა" },
       {
         name: "description",
-        content: "ანეტა & გიორგი · 31 ოქტომბერი, 2026",
+        content: "ზურა & მილანა · 24 ოქტომბერი, 2026",
       },
       { property: "og:title", content: "გეპატიჟებით ჩვენს ქორწილში" },
-      { property: "og:description", content: "ანეტა & გიორგი · 31 ოქტომბერი, 2026" },
+      { property: "og:description", content: "ზურა & მილანა · 24 ოქტომბერი, 2026" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "გეპატიჟებით ჩვენს ქორწილში" },
-      { name: "twitter:description", content: "ანეტა & გიორგი · 31 ოქტომბერი, 2026" },
+      { name: "twitter:description", content: "ზურა & მილანა · 24 ოქტომბერი, 2026" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
   }),
@@ -47,7 +50,7 @@ function Invitation() {
 
   return (
     <main className="relative min-h-screen bg-backdrop">
-      <h1 className="sr-only">ანეტა და გიორგი — ქორწილის მოწვევა, 31 ოქტომბერი, 2026</h1>
+      <h1 className="sr-only">ზურა და მილანა — ქორწილის მოწვევა, 24 ოქტომბერი, 2026</h1>
 
       <div
         className={`transition-all duration-[1600ms] ease-out ${
@@ -88,12 +91,13 @@ function Invitation() {
         <Door side="left" open={open} />
         <Door side="right" open={open} />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <FairyDust open={open} />
           <img
             src={bowImg}
-            alt="თეთრი შიფონის ბაფთა"
+            alt="ცისფერი ბრჭყვიალა ბაფთა"
             width={1024}
             height={1536}
-            className={`w-[68vw] max-w-[24rem] drop-shadow-[0_18px_28px_rgba(90,74,56,0.22)] transition-all duration-[1100ms] ease-out ${
+            className={`w-[68vw] max-w-[24rem] relative drop-shadow-[0_0_30px_oklch(0.85_0.08_240/0.7)] transition-all duration-[1100ms] ease-out ${
               open ? "rotate-[3deg] scale-125 opacity-0 blur-[3px]" : "animate-bow-breathe"
             }`}
           />
@@ -102,6 +106,44 @@ function Invitation() {
 
       <MusicPlayer />
     </main>
+  );
+}
+
+const DUST = Array.from({ length: 28 }, (_, i) => ({
+  a: (i * 137.5) % 360,
+  r: 22 + ((i * 53) % 26),
+  s: 6 + ((i * 7) % 12),
+  d: (i * 290) % 3400,
+}));
+
+function FairyDust({ open }: { open: boolean }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute inset-0 transition-opacity duration-700 ${open ? "opacity-0" : "opacity-100"}`}
+    >
+      {DUST.map((p, i) => (
+        <svg
+          key={i}
+          viewBox="0 0 24 24"
+          className="absolute"
+          style={{
+            left: `calc(50% + ${Math.cos((p.a * Math.PI) / 180) * p.r}vmin)`,
+            top: `calc(50% + ${Math.sin((p.a * Math.PI) / 180) * p.r * 1.3}vmin)`,
+            width: p.s,
+            height: p.s,
+            animation: "twinkle 3.4s ease-in-out infinite",
+            animationDelay: `${p.d}ms`,
+            filter: "drop-shadow(0 0 4px oklch(0.95 0.06 230))",
+          }}
+        >
+          <path
+            d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z"
+            fill={i % 3 === 0 ? "oklch(0.88 0.1 85)" : "oklch(0.97 0.03 230)"}
+          />
+        </svg>
+      ))}
+    </div>
   );
 }
 
@@ -133,7 +175,7 @@ function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <img
         src={archImg}
-        alt="აკვარელით დახატული თაღი ლაგო დი კომოს ხედით"
+        alt="ზღაპრული სასახლე შადრევნებით"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="relative z-10 flex flex-col items-center px-8 text-center">
@@ -142,7 +184,7 @@ function Hero() {
           shimmer={false}
           className="font-geo text-[13vw] leading-[1.1] sm:text-6xl"
         >
-          ანეტა
+          ზურა
         </SparkleTitle>
         <p className="my-1 font-geo text-2xl text-ink/70">&amp;</p>
         <SparkleTitle
@@ -150,10 +192,10 @@ function Hero() {
           shimmer={false}
           className="font-geo text-[13vw] leading-[1.1] sm:text-6xl"
         >
-          გიორგი
+          მილანა
         </SparkleTitle>
         <div className="mt-8 rounded-full bg-parchment/70 px-6 py-3 backdrop-blur-[2px]">
-          <p className="font-geo text-sm tracking-[0.3em] text-ink/85">31 ოქტომბერი, 2026</p>
+          <p className="font-geo text-sm tracking-[0.3em] text-ink/85">24 ოქტომბერი, 2026</p>
         </div>
 
         <Countdown />
@@ -242,7 +284,7 @@ function EnvelopeSection() {
                   className="mt-4 font-geo text-[0.85rem] text-ink/70"
                 />
                 <Typewriter
-                  text="ანეტა & გიორგი"
+                  text="ზურა & მილანა"
                   speed={55}
                   startDelay={5600}
                   className="font-geo text-[0.95rem] text-olive"
@@ -350,8 +392,8 @@ function Rsvp() {
 }
 
 const COUPLE_PHOTOS = [
-  { src: "/images/couple_2.jpg", alt: "ანეტა და გიორგი აივანზე" },
-  { src: "/images/couple_1.jpg", alt: "ანეტა და გიორგი ვარდებით" },
+  { src: "/images/couple_2.jpg", alt: "ზურა და მილანა აივანზე" },
+  { src: "/images/couple_1.jpg", alt: "ზურა და მილანა ვარდებით" },
 ];
 
 function ChildhoodPhoto() {
@@ -368,7 +410,7 @@ function ChildhoodPhoto() {
             <div className="relative overflow-hidden ring-1 ring-olive/25">
               <img
                 src="/images/perfect_2.jpg"
-                alt="ანეტა და გიორგი — ბავშვობის ფოტოები"
+                alt="ზურა და მილანა — ბავშვობის ფოტოები"
                 className="aspect-[4/5] w-full object-cover object-center sepia-[.15] transition duration-700 group-hover:scale-[1.03] group-hover:sepia-0"
               />
               <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_30px_rgba(60,50,30,0.22)]" />
@@ -508,7 +550,7 @@ function Footer() {
         <span className="h-1.5 w-1.5 rotate-45 bg-olive/60" />
         <span className="h-px flex-1 bg-olive/35" />
       </div>
-      <p className="mt-8 font-geo text-4xl text-olive">ა &amp; გ</p>
+      <p className="mt-8 font-geo text-4xl text-olive">ზ &amp; მ</p>
       <p className="mt-5 font-geo text-sm tracking-[0.2em] text-ink/70">
         გელოდებით დიდი სიყვარულით
       </p>
