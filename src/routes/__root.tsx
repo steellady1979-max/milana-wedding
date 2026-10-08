@@ -78,12 +78,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ანეტა & გიორგი — ქორწილის მოწვევა" },
+      { title: "ზურა & მილანა — ქორწილის მოწვევა" },
       {
         name: "description",
-        content: "ანეტასა და გიორგის ქორწილის მოწვევა — 31 ოქტომბერი, 2026.",
+        content: "ზურასა და მილანას ქორწილის მოწვევა — 24 ოქტომბერი, 2026.",
       },
-      { name: "author", content: "ანეტა და გიორგი" },
+      { name: "author", content: "ზურა და მილანა" },
       { property: "og:type", content: "website" },
       { name: "theme-color", content: "#6f263d" },
     ],
