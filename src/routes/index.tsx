@@ -573,7 +573,7 @@ function DressCode() {
     <section className="overflow-hidden bg-parchment px-6 py-20">
       <Reveal>
         <div className="mx-auto max-w-md text-center">
-          <SparkleTitle className="font-geo text-2xl">დრესკოდი</SparkleTitle>
+          <SparkleTitle className="font-geo text-2xl">დრესკოდი — ზღაპრული საღამო</SparkleTitle>
           <p className="mt-3 font-geo text-base text-olive">შემოდგომის ფერები</p>
 
           <div className="relative mx-auto mt-10 w-full max-w-[18.5rem] sm:max-w-xs">
