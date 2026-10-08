@@ -182,7 +182,7 @@ function Hero() {
         <SparkleTitle
           as="p"
           shimmer={false}
-          className="font-geo text-[13vw] leading-[1.1] sm:text-6xl"
+          className="font-geo text-[13vw] leading-[1.1] !text-olive sm:text-6xl"
         >
           ზურა
         </SparkleTitle>
@@ -190,7 +190,7 @@ function Hero() {
         <SparkleTitle
           as="p"
           shimmer={false}
-          className="font-geo text-[13vw] leading-[1.1] sm:text-6xl"
+          className="font-geo text-[13vw] leading-[1.1] !text-olive sm:text-6xl"
         >
           მილანა
         </SparkleTitle>
