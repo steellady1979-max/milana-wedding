@@ -139,6 +139,7 @@
   --ink: oklch(0.3 0.06 260);
   --wine: oklch(0.55 0.1 245); /* cinderella blue (deep) */
   --olive: oklch(0.62 0.11 80); /* champagne / rococo gold */
+  --heading: oklch(0.499 0.068 84.9); /* heading gold-olive (#756033) */
   --sage: oklch(0.8 0.07 235); /* powder blue */
   --shadow-soft: 0 12px 30px -12px oklch(0.3 0.08 255 / 0.35);
   --shadow-door: 0 0 60px -10px oklch(0.75 0.1 235 / 0.55);
@@ -158,6 +159,7 @@
   --color-ink: var(--ink);
   --color-wine: var(--wine);
   --color-olive: var(--olive);
+  --color-heading: var(--heading);
   --color-sage: var(--sage);
   --shadow-soft: var(--shadow-soft);
 
@@ -249,13 +251,13 @@
 @utility shimmer-text {
   background-image: linear-gradient(
     100deg,
-    var(--olive) 0%,
-    var(--olive) 32%,
-    oklch(0.86 0.09 90) 46%,
-    oklch(0.98 0.03 95) 52%,
-    oklch(0.86 0.09 90) 58%,
-    var(--olive) 72%,
-    var(--olive) 100%
+    var(--heading) 0%,
+    var(--heading) 32%,
+    oklch(0.62 0.09 84) 46%,
+    oklch(0.72 0.07 85) 52%,
+    oklch(0.62 0.09 84) 58%,
+    var(--heading) 72%,
+    var(--heading) 100%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
