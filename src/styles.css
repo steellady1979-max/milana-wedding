@@ -139,6 +139,7 @@
   --ink: oklch(0.3 0.06 260);
   --wine: oklch(0.55 0.1 245); /* cinderella blue (deep) */
   --olive: oklch(0.62 0.11 80); /* champagne / rococo gold */
+  --heading: oklch(0.499 0.068 84.9); /* heading gold-olive (#756033) */
   --sage: oklch(0.8 0.07 235); /* powder blue */
   --shadow-soft: 0 12px 30px -12px oklch(0.3 0.08 255 / 0.35);
   --shadow-door: 0 0 60px -10px oklch(0.75 0.1 235 / 0.55);
@@ -158,6 +159,7 @@
   --color-ink: var(--ink);
   --color-wine: var(--wine);
   --color-olive: var(--olive);
+  --color-heading: var(--heading);
   --color-sage: var(--sage);
   --shadow-soft: var(--shadow-soft);
 
