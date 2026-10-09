@@ -1,32 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "./Reveal";
 import { SparkleTitle } from "./SparkleTitle";
-import { Church, MapPin, PenLine, UtensilsCrossed } from "lucide-react";
+import { Church, MapPin, PenLine } from "lucide-react";
 
 const ITEMS: { time: string; icon: typeof Church; title: string; map: string; image?: string; alt?: string }[] = [
   {
-    time: "14:00",
+    time: "15:00",
     icon: Church,
-    title: "ჯვრისწერა — საგარეჯო, ნინოწმინდის მონასტერი",
-    map: "https://maps.app.goo.gl/nCEMkXJLqwfCZTPY7",
-    image: "/images/church_monastery.jpg",
-    alt: "ნინოწმინდის მონასტერი, აკვარელი",
+    title: "ჯვრისწერა — მცხეთა, სვეტიცხოვლის საკათედრო ტაძარი",
+    map: "https://maps.app.goo.gl/bKAdtSQ6jJN57vt88?g_st=ic",
+    image: "/images/svetitskhoveli.jpg",
+    alt: "სვეტიცხოვლის საკათედრო ტაძარი, აკვარელი",
   },
   {
-    time: "16:30",
+    time: "17:00",
     icon: PenLine,
-    title: "ხელისმოწერის ცერემონია — მანავი, გიუაანი მეღვინეობა",
-    map: "https://maps.app.goo.gl/ncv15eDxJQcHkNZV8",
+    title: "ხელის მოწერა & ვახშამი — რესტორანი „ლისი მერე“",
+    map: "https://maps.app.goo.gl/aqk4fb3sVg1VrA8q8?g_st=ic",
     image: "/images/ceremony.jpg",
-    alt: "ხელისმოწერის ცერემონია, აკვარელი",
-  },
-  {
-    time: "18:00",
-    icon: UtensilsCrossed,
-    title: "ვახშამი — მანავი, გიუაანი მეღვინეობა",
-    map: "https://maps.app.goo.gl/ncv15eDxJQcHkNZV8",
-    image: "/images/giuaani-table.jpg",
-    alt: "ვახშამის მაგიდა გიუაანი მეღვინეობაში, აკვარელი",
+    alt: "ხელის მოწერისა და ვახშმის ცერემონია",
   },
 ];
 

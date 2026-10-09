@@ -16,7 +16,7 @@ const panelImg = doorPanel;
 const bowImg = blushBow;
 const archImg = heroChateau;
 const envelopeImg = "/images/envelope.png";
-const WEDDING_DATE = new Date("2026-10-24T14:00:00+04:00");
+const WEDDING_DATE = new Date("2026-10-24T15:00:00+04:00");
 const OG_IMAGE =
   "https://project--29d3676c-79dc-4353-9774-21b5d96eb7be.lovable.app/images/og-share.jpg";
 
@@ -63,7 +63,6 @@ function Invitation() {
         <ChildhoodPhoto />
         <EnvelopeSection />
         <Schedule />
-        <DressCode />
         <CoupleImage />
         <Rsvp />
         <Guestbook />
@@ -240,7 +239,7 @@ function EnvelopeSection() {
 
       <div
         className={`w-full max-w-md transition-all duration-[1200ms] ease-out ${
-          opened ? "pt-[26rem]" : "pt-0"
+          opened ? "pt-[38rem]" : "pt-0"
         }`}
         style={{ perspective: "1400px" }}
       >
@@ -264,30 +263,48 @@ function EnvelopeSection() {
             }`}
           >
             {opened ? (
-              <div className="font-geo text-[0.9rem] leading-[1.9] text-ink/85">
+              <div className="font-geo text-[0.82rem] leading-[1.75] text-ink/85 sm:text-[0.9rem]">
                 <Typewriter
                   text="ძვირფასო სტუმრებო,"
-                  speed={55}
-                  startDelay={800}
-                  className="font-geo text-[0.9rem] leading-[1.9] text-ink/85"
-                />
-                <Typewriter
-                  text="გეპატიჟებით ჩვენი ერთ-ერთი ყველაზე მნიშვნელოვანი და ლამაზი დღის გასაზიარებლად"
                   speed={32}
-                  startDelay={1900}
-                  className="mt-2 font-geo text-[0.9rem] leading-[1.9] text-ink/85"
+                  startDelay={700}
+                  className="font-geo text-[0.9rem] leading-[1.75] text-ink/85"
                 />
                 <Typewriter
-                  text="სიყვარულით"
-                  speed={55}
-                  startDelay={4800}
-                  className="mt-4 font-geo text-[0.85rem] text-ink/70"
+                  text="დადგა დღე, რომელსაც განსაკუთრებული სიხარულით ველოდით!"
+                  speed={12}
+                  startDelay={1100}
+                  className="mt-3 font-geo leading-[1.75] text-ink/85"
+                />
+                <Typewriter
+                  text="გიწვევთ ჩვენი სიყვარულის ისტორიის დაგვირგვინების დღეს ჩვენს ქორწილში."
+                  speed={12}
+                  startDelay={1700}
+                  className="mt-2 font-geo leading-[1.75] text-ink/85"
+                />
+                <Typewriter
+                  text="ამ დიდი სიხარულის თქვენთვის გაზიარება ყველაფერს კიდევ უფრო განსაკუთრებულად აქცევს."
+                  speed={12}
+                  startDelay={2400}
+                  className="mt-2 font-geo leading-[1.75] text-ink/85"
+                />
+                <Typewriter
+                  text="გვსურს გახდეთ ამ ულამაზესი დღის ნაწილი."
+                  speed={12}
+                  startDelay={3200}
+                  className="mt-2 font-geo leading-[1.75] text-ink/85"
+                />
+                <Typewriter
+                  text="გპირდებით ულამაზეს მოგონებებს, სითბოსა და უსაზღვრო სიხარულს."
+                  speed={12}
+                  startDelay={3800}
+                  className="mt-2 font-geo leading-[1.75] text-ink/85"
                 />
                 <Typewriter
                   text="ზურა & მილანა"
-                  speed={55}
-                  startDelay={5600}
-                  className="font-geo text-[0.95rem] text-olive"
+                  speed={30}
+                  startDelay={4700}
+                  className="mt-4 font-geo text-[0.95rem] text-olive"
                 />
               </div>
             ) : (
@@ -555,85 +572,6 @@ function Footer() {
         გელოდებით დიდი სიყვარულით
       </p>
     </footer>
-  );
-}
-
-const DRESS_COLORS = [
-  { name: "ზღაპრული ცისფერი", c: "oklch(0.8 0.07 235)" },
-  { name: "შამპანური ოქრო", c: "oklch(0.8 0.1 85)" },
-  { name: "ვარდისფერი", c: "oklch(0.85 0.06 15)" },
-  { name: "მარგალიტი", c: "oklch(0.96 0.015 90)" },
-  { name: "ღამის ლურჯი", c: "oklch(0.3 0.07 260)" },
-];
-
-function DressCode() {
-  const [picked, setPicked] = useState<number | null>(null);
-  const active = picked !== null ? DRESS_COLORS[picked]! : null;
-  return (
-    <section className="overflow-hidden bg-parchment px-6 py-20">
-      <Reveal>
-        <div className="mx-auto max-w-md text-center">
-          <SparkleTitle className="font-geo text-2xl">დრესკოდი — ზღაპრული საღამო</SparkleTitle>
-          <p className="mt-3 font-geo text-base text-olive">შემოდგომის ფერები</p>
-
-          <div className="relative mx-auto mt-10 w-full max-w-[18.5rem] sm:max-w-xs">
-            <div
-              aria-hidden
-              className="absolute -inset-x-4 inset-y-2 rounded-[50%] blur-3xl transition-all duration-700 ease-out"
-              style={{
-                background: active
-                  ? `color-mix(in oklab, ${active.c} 38%, transparent)`
-                  : "color-mix(in oklab, var(--olive) 12%, transparent)",
-                transform: active ? "scale(1.05)" : "scale(0.85)",
-              }}
-            />
-            <div className="animate-dance-sway relative origin-bottom">
-              <img
-                src="/images/dancers-v3.png"
-                alt="მოცეკვავე სტუმრები შემოდგომის ფერის სამოსში"
-                loading="lazy"
-                className="animate-dance-bob mx-auto block w-full"
-              />
-            </div>
-          </div>
-
-          <div className="mt-10 flex items-center justify-center gap-4">
-            {DRESS_COLORS.map((d, k) => (
-              <button
-                key={d.name}
-                type="button"
-                aria-label={d.name}
-                aria-pressed={picked === k}
-                onClick={() => setPicked(k)}
-                onMouseEnter={() => setPicked(k)}
-                onFocus={() => setPicked(k)}
-                className={`h-8 w-8 rounded-full border-2 border-parchment shadow-soft outline-none ring-1 ring-ink/10 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-olive/70 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment ${
-                  picked === k
-                    ? "-translate-y-1 scale-110 ring-2 ring-olive/45"
-                    : "hover:-translate-y-0.5"
-                }`}
-                style={{ background: d.c }}
-              />
-            ))}
-          </div>
-
-          <div className="mt-5 flex h-7 items-center justify-center">
-            {active ? (
-              <span className="inline-flex items-center gap-2 rounded-full border border-olive/25 bg-parchment px-3 py-1 font-geo text-xs tracking-[0.18em] text-ink/75 shadow-soft">
-                <span
-                  aria-hidden
-                  className="h-2 w-2 rounded-full"
-                  style={{ background: active.c }}
-                />
-                {active.name}
-              </span>
-            ) : (
-              <span className="font-geo text-xs tracking-[0.2em] text-ink/45">შეეხე ფერს</span>
-            )}
-          </div>
-        </div>
-      </Reveal>
-    </section>
   );
 }
 
