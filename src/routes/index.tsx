@@ -9,11 +9,11 @@ import MusicPlayer from "@/components/MusicPlayer";
 import { AddToCalendar } from "@/components/Extras";
 import { sendToGoogleSheets } from "@/lib/googleSheets";
 import doorPanel from "@/assets/door-panel.jpg";
-import blueBow from "@/assets/blue-bow.png";
+import blushBow from "@/assets/bow.png";
 import heroChateau from "@/assets/hero-chateau.jpg";
 
 const panelImg = doorPanel;
-const bowImg = blueBow;
+const bowImg = blushBow;
 const archImg = heroChateau;
 const envelopeImg = "/images/envelope.png";
 const WEDDING_DATE = new Date("2026-10-24T14:00:00+04:00");
@@ -94,10 +94,10 @@ function Invitation() {
           <FairyDust open={open} />
           <img
             src={bowImg}
-            alt="ცისფერი ბრჭყვიალა ბაფთა"
+            alt="ღია ვარდისფერი მინიმალისტური ბაფთა"
             width={1024}
             height={1536}
-            className={`w-[68vw] max-w-[24rem] relative drop-shadow-[0_0_30px_oklch(0.85_0.08_240/0.7)] transition-all duration-[1100ms] ease-out ${
+            className={`relative w-[32vw] min-w-[7.5rem] max-w-[10rem] drop-shadow-[0_10px_24px_oklch(0.58_0.06_20/0.24)] transition-all duration-[1100ms] ease-out ${
               open ? "rotate-[3deg] scale-125 opacity-0 blur-[3px]" : "animate-bow-breathe"
             }`}
           />
@@ -182,20 +182,20 @@ function Hero() {
         <SparkleTitle
           as="p"
           shimmer={false}
-          className="font-geo text-[13vw] leading-[1.1] !text-olive sm:text-6xl"
+          className="font-geo text-[13vw] leading-[1.1] !text-[oklch(0.43_0.07_20)] drop-shadow-[0_1px_10px_oklch(0.98_0.02_20/0.72)] sm:text-6xl"
         >
           ზურა
         </SparkleTitle>
-        <p className="my-1 font-geo text-2xl text-ink/70">&amp;</p>
+        <p className="my-1 font-geo text-2xl text-[oklch(0.43_0.07_20)]/75">&amp;</p>
         <SparkleTitle
           as="p"
           shimmer={false}
-          className="font-geo text-[13vw] leading-[1.1] !text-olive sm:text-6xl"
+          className="font-geo text-[13vw] leading-[1.1] !text-[oklch(0.43_0.07_20)] drop-shadow-[0_1px_10px_oklch(0.98_0.02_20/0.72)] sm:text-6xl"
         >
           მილანა
         </SparkleTitle>
         <div className="mt-8 rounded-full bg-parchment/70 px-6 py-3 backdrop-blur-[2px]">
-          <p className="font-geo text-sm tracking-[0.3em] text-ink/85">24 ოქტომბერი, 2026</p>
+          <p className="font-geo text-sm tracking-[0.3em] text-[oklch(0.43_0.07_20)]">24 ოქტომბერი, 2026</p>
         </div>
 
         <Countdown />
@@ -222,7 +222,7 @@ function Countdown() {
     <div className="mt-8 flex gap-3 rounded-2xl bg-parchment/70 px-5 py-4 backdrop-blur-[2px]">
       {parts.map((p) => (
         <div key={p.l} className="w-14">
-          <p className="font-geo text-2xl text-olive">{String(p.v).padStart(2, "0")}</p>
+          <p className="font-geo text-2xl text-[oklch(0.43_0.07_20)]">{String(p.v).padStart(2, "0")}</p>
           <p className="font-geo text-[0.6rem] tracking-[0.2em] text-ink/60">{p.l}</p>
         </div>
       ))}
